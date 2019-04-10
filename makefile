@@ -11,7 +11,7 @@ screen3: $(OBJS)
 	@echo Compilando SCREEN3:
 	gfortran -o $@ $?
 
-%.o: %.f
+%.o: %.FOR
 	gfortran -c $< -o $@
 
 end:
