@@ -382,9 +382,20 @@ C
 60    CONTINUE
 C
 C        CALL DATE AND TIME FUNCTIONS FOR GFORTRAN.
-C
-      CALL DATE_AND_TIME(DATE=RUNDAT)
-      CALL DATE_AND_TIME(TIME=RUNTIM)
+C     
+      CALL DATE_AND_TIME(VALUES=DVALUES)
+      IPTYR = DVALUES(1)
+      IPTMON = DVALUES(2)
+      IPTDAY = DVALUES(3)
+      IPTHR = DVALUES(5)
+      IPTMIN = DVALUES(6)
+      IPTSEC = DVALUES(7)
+      IPTHUN = DVALUES(8)
+C     Convert Year to Two Digits
+      IPTYR = IPTYR - 100*INT(IPTYR/100)
+C     Write Date and Time to Character Variables, RUNDAT & RUNTIM
+      WRITE(RUNDAT,'(2(I2.2,1H/),I2.2)') IPTMON, IPTDAY, IPTYR
+      WRITE(RUNTIM,'(2(I2.2,1H:),I2.2)') IPTHR, IPTMIN, IPTSEC
 C
 C***********************************************************************
 C        BEGIN USER INPUT
