@@ -1047,22 +1047,23 @@ C
      &       /1X,'** REMEMBER TO INCLUDE BACKGROUND CONCENTRATIONS **',
      &       /1X,'***************************************************'/)
 C
-11    WRITE(IPRT,*) 'DO YOU WANT TO PRINT A HARDCOPY OF THE RESULTS?',
-     &           '  ENTER Y OR N:'
-      READ(IRD,100) QUERY
-      IF (QUERY .EQ. 'Y' .OR. QUERY .EQ. 'y') THEN
-         WRITE(IDAT,100) QUERY
-         CALL PRTOUT(IOUT)
-         WRITE(IPRT,1000) OUTFIL
-1000     FORMAT(' THE OUTPUT FILE, "',A12,'", HAS BEEN PRINTED.'/'1')
-      ELSE IF (QUERY .EQ. 'N' .OR. QUERY .EQ. 'n') THEN
-         WRITE(IDAT,100) QUERY
-         WRITE(IPRT,1001) OUTFIL
-1001     FORMAT(' THE RESULTS OF THIS RUN ARE IN FILE, "',A12,'".'/'1')
-      ELSE
-         GO TO 11
-      END IF
-
+C11    WRITE(IPRT,*) 'DO YOU WANT TO PRINT A HARDCOPY OF THE RESULTS?',
+C     &           '  ENTER Y OR N:'
+C      READ(IRD,100) QUERY
+C      IF (QUERY .EQ. 'Y' .OR. QUERY .EQ. 'y') THEN
+C         WRITE(IDAT,100) QUERY
+C         CALL PRTOUT(IOUT)
+C         WRITE(IPRT,1000) OUTFIL
+c1000     FORMAT(' THE OUTPUT FILE, "',A12,'", HAS BEEN PRINTED.'/'1')
+C      ELSE IF (QUERY .EQ. 'N' .OR. QUERY .EQ. 'n') THEN
+C         WRITE(IDAT,100) QUERY
+C         WRITE(IPRT,1001) OUTFIL
+c1001     FORMAT(' THE RESULTS OF THIS RUN ARE IN FILE, "',A12,'".'/'1')
+C      ELSE
+c         GO TO 11
+C      END IF
+      WRITE(IPRT,1001) OUTFIL
+1001  FORMAT(' THE RESULTS OF THIS RUN ARE IN FILE, "',A12,'".'/'1')
       STOP
       END
 
